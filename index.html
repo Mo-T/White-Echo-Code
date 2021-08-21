@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>White Echo Online Reservation</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header>
+		<img class="logo" height="100" src="Images/White_echo_motel_logo.png" width="150">
+		<h1 class="header">White Echo Motel Reservations</h1>
+	</header>
+	<div class="main_content" id="container">
+		<br>
+		<h1>Step One - Select your check in date:</h1>
+		<hr>
+		<label>Check in date:</label><input id="checkInDate" required class="dateInput" type="date"><div class="errorMessages" id="errorMessage-1"></div><br><br>
+		<h2>Step Two - Enter in the number of nights:</h2>
+		<hr>
+		<label>Number of nights:</label><input id="numberNights" max="10" min="1" required placeholder="3" type="number"><div class="errorMessages" id="errorMessage0"></div><br><br>
+		<h1>Book a Room</h1>
+		<hr>
+		<br>
+		<div class="roomCard" data-name="Studio Room" data-price="219">
+			<img alt="Studio Room" src="Images/studio%20room.jpg" title="Studio Room">
+			<div class="textOverlay">
+				<h2>Studio Room - $219 per night</h2>
+			</div>
+			<p></p>
+		</div>
+		<div class="roomCard" data-name="Executive Studio" data-price="249">
+			<img alt="Executive Suite Room" src="Images/executive_suite.jpg.jpg" title="Executive Suite Room">
+			<div class="textOverlay">
+				<h2>Executive Suite - $249 per night</h2>
+			</div>
+			<p></p>
+		</div>
+		<div class="roomCard" data-name="Two Bedroom" data-price="329">
+			<img alt="Two Bedroom Room" src="Images/two%20bedroom%20suite.jpg" title="Two Bedrrom Room">
+			<div class="textOverlay">
+				<h2>Two Bedroom - $329 per night</h2>
+			</div>
+			<p></p>
+		</div>
+		<div class="roomCard" data-name="Family Suite" data-price="249">
+			<img alt="Family Suite Room" src="Images/family%20suite.jpg" title="Family Suite Room">
+			<div class="textOverlay">
+				<h2>Family Suite - $249 per night</h2>
+			</div>
+			<p></p>
+		</div>
+		<h1 id="roomInformation">Room Information:</h1>
+		<hr>
+		<table>
+			<tr>
+				<td>Room</td>
+				<td>
+					<div id="roomOutput"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Price per night</td>
+				<td>
+					<div id="priceOutput"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>check in date</td>
+				<td>
+					<div id="dateOutput"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Number of nights</td>
+				<td>
+					<div id="nightOutput"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Extras</td>
+				<td>
+					<div id="extrasOutput"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Breakfast</td>
+				<td>
+					<div id="breakfastOutput"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Total Price</td>
+				<td>
+					<div id="totalPriceOutput"></div>
+				</td>
+			</tr>
+		</table><br>
+		<h2>Step Three - Indulge Yourself</h2>
+		<hr>
+		<p>Why not take the stress out of your visit and add some extra special services to your stay with us:</p>
+		<label><input class="addCheck" data-price="0" type="checkbox" value="Cot">Cot - FREE</label><br>
+		<label><input class="addCheck" data-price="60" type="checkbox" value="Massage">Massage - $60</label><br>
+		<label><input class="addCheck" data-price="50" type="checkbox" value="Facial">Facial - $50</label><br>
+		<label><input class="addCheck" data-price="0" type="checkbox" value="Breakfast">Breakfast - $25 per room/days</label><br>
+		<!--inputs for cutomer details-->
+		<h2>Step Four - Enter your details:</h2>
+		<hr>
+		<label>First Name:</label><input autocomplete="on" id="firstNameInput" placeholder="John" pattern="[A-Za-z'-]{2,11}" required="" title="Please enter in your first name" type="text"><br>
+		<div class="errorMessages" id="errorMessage1"></div><br><br><br>
+		<label>Last Name:</label><input autocomplete="on" id="lastNameInput" placeholder="Smith" pattern="[A-Za-z'-]{2,11}" required="" title="Pleas enter in your last name" type="text"><br>
+		<div class="errorMessages" id="errorMessage2"></div><br><br><br>
+		<label>Email Address:</label><input autocomplete="on" id="emailInput" placeholder="johnsmith@gmail.com" required="" title="Please enter in your email address" type="email"><br>
+		<div class="errorMessages" id="errorMessage3"></div><br><br><br>
+		<label>Cellphone Number:</label><input autocomplete="on" id="cellphoneInput" placeholder="025586587346" pattern="[+0-9]{9,13}" required title="Please enter in your cellphone number" type="tel"><br>
+		<div class="errorMessages" id="errorMessage4"></div><br><br><br>
+		<label>Comments</label> 
+		<textarea placeholder="Please enter any other information here"></textarea><br>
+		<div class="errorMessages" id="errorMessage5"></div><br><br><br>
+		<button type="button" onclick="checkInputs()" id="confirmButton">Confirm Booking</button>
+	</div><br>
+	<br>
+	<footer class="footer">
+		<!--Allows for the copyright statements to be styled on the stylesheet-->
+		<div class="footer__p">
+			<p>All images used on this page are subject to copyright. Any replication or reuse of these images is strictly prohibited</p><!--Copyright statements-->
+			<p>Site developed and maintained by <strong>Mohammad Taha</strong> © 2021</p><!--Horizontal line seperating the context and the external links represented by logos-->
+			<hr class="footer_hr">
+		</div>
+	</footer><!--End of footer-->
+	
+	 <!-- Overlay displayed when the data has been pushed to firebase -->
+	<div id="confirmOverlay">
+		<p>Your booking has been confirmed</p>
+		<a href="javascript:void(0)" onclick=" document.getElementById('confirmOverlay').style.height = '0'">&times;</a>
+	</div>
+	
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyA66PNvdmpgieX72I402801UbmO-lqQqrI",
+    authDomain: "white-echo-motel-reservations.firebaseapp.com",
+    databaseURL: "https://white-echo-motel-reservations-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "white-echo-motel-reservations",
+    storageBucket: "white-echo-motel-reservations.appspot.com",
+    messagingSenderId: "639879707844",
+    appId: "1:639879707844:web:aabe3e70d9b777c1a35d91",
+    measurementId: "G-LYZ38NZ847"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+	<script src="white_echo.js">
+	</script>
+</body>
+</html>

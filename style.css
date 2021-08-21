@@ -1,0 +1,227 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lusitana&display=swap');
+#confirmOverlay {
+    /* style on confirm overlay */
+    position: fixed;
+    overflow: hidden;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(182,242,252,1.00);
+    opacity: 0.95;
+    transition: 0.2s;
+    width: 100vw;
+    height: 0;
+    /* height adjusted to expand overlay */
+}
+
+#confirmOverlay p {
+    /* style on text portion of confirm overlay */
+    line-height: 80vh;
+    font-family: 'Raleway', sans-serif;
+    font-size: 5vw;
+    opacity: 1.0;
+    color: black;
+}
+
+#confirmOverlay a {
+    /* style on cross to close confirm overlay */
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 45px;
+    font-size: 90px;
+}
+
+#confirmOverlay a:hover {
+    color: #cccccc;
+}
+
+
+#confirmButton{
+    background-color:green;
+    color:white;
+    float:left;
+    
+}
+
+
+.errorMessages {
+	text-align: right;
+	color: red;
+	font-size: 18px;
+	float: right;
+	font-style: italic;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	font-family: 'Lusitana', serif;
+	margin: 0;
+}
+.main_content {
+	margin: auto;
+	width: 80%
+}
+.main_content h1, h2 {
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	color: #3A7699;
+}
+/* Selects any <input>, but only when it has a range
+   specified, and its value is outside that range */
+
+input:invalid {
+	background-color: rgba(255, 0, 0, 0.25);
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
+.textOverlay {
+	/*style of overlay on room cards, only displayedon hover*/
+	opacity: 0.0;
+	transition: 0.3s ease-in-out;
+	background-color: #FFFFFF;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	line-height: 40px;
+	text-align: center;
+	font-size: 30px;
+	height: 92%;
+}
+.textOverlay:hover {
+	opacity: 0.7;
+	transition: 0.3s ease-in-out;
+}
+
+.textOverlay h2 {
+	font-size: 22px;
+	color: #000;
+	line-height: 160px;
+}
+
+.roomCard {
+	/*style for the room card container*/
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	width: 25vw;
+}
+.roomCard img {
+	width: 25vw;
+	margin: auto;
+	display: inline-block;
+}
+header {
+	background-color: #3A7699;
+	height: 170px;
+	color: #FFFFFF;
+	font-size: 130%;
+	text-align: left;
+	padding: 30px;
+}
+.logo {
+	float: right;
+	display: inline-block;
+	height: 160%;
+	margin-top: -3%;
+	width: 20%;
+}
+[type='text'], select, [type='email'], [type="tel"], [type='date'], [type='number'], textarea {
+	display: inline-block;
+	padding: 0.5rem;
+	background: transparent;
+	vertical-align: middle;
+	width: 100%;
+	max-width: 100%;
+	border: 1px solid #cdcdcd;
+	border-radius: 4px;
+	font-size: 0.95rem;
+}
+table {
+	width: 80%;
+	margin: auto;
+}
+/*Controls the display of the main background of the footer as well as the style of text on the footer using font family etc*/
+
+.footer {
+	padding: 20px 0;
+	line-height: 1.6;
+	background-color: #3A7699;
+	font-family: 'Raleway', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
+/*Controls the horizontal line on the footer and its colour and shape*/
+
+.footer_hr {
+	width: 100%;
+	background: #FFFFFF;
+	height: 2px;
+	border: none;
+}
+/*Style for the copyright statement in the footer */
+
+.footer__p {
+	color: #FFFFFF;
+	padding: 3px 15px;
+	display: block;
+	text-align: center;
+}
+@media screen and (max-width: 600px) {
+	.topnav a:not(:first-child) {
+		display: none;
+	}
+	.topnav a.icon {
+		float: right;
+		display: block;
+	}
+}
+@media screen and (max-width: 600px) {
+	.topnav.responsive {
+		position: relative;
+	}
+	.topnav.responsive .icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.topnav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+}
+/* Responsive columns */
+
+@media screen and (max-width: 600px) {
+	.column {
+		width: 100%;
+		display: block;
+		margin-bottom: 20px;
+	}
+}
+@media screen and (max-width: 500px) {
+	.column {
+		width: 100%;
+		display: block;
+		margin-bottom: 20px;
+		height: 600px;
+	}
+	.card {
+		height: 580px;
+	}
+}
